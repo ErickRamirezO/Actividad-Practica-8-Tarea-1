@@ -9,7 +9,7 @@ const MessageList = ({ messages }) => {
             <li key={index} className="border-b border-gray-200 p-2">
               {message.id && <p>ID: {message.id}</p>}
               {message.content && <p>Mensaje: {message.content}</p>}
-              {message.timestamp && <p>Enviado: {message.timestamp}</p>}
+              {message.timestamp && <p className='tam'>Enviado: {message.timestamp}</p>}
             </li>
           )
         ))}

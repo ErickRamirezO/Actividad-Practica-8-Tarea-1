@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import MessageList from './components/MessageList';
 import MessageForm from './components/MessageForm';
 import './index.css'; // Estilos globales
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+
+
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -77,16 +82,18 @@ export default function Chat() {
       console.error('Error sending message:', error.message);
     }
   };
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    setSession(null)
-    navigate('/');
-  }
 
+  async function signOut() {
+    /* sign the user out */
+    await supabase.auth.signOut();
+    setSession(null);
+  }
   return (
     <div>
-      <h1>Aplicación de Mensajería Segura</h1>
-      <button onClick={handleLogout}>Logout</button>
+      
+    
+      <h1>Mensajería Segura</h1>
+      <Button onClick={signOut}>Logout</Button>
       <MessageList messages={messages} />
       <MessageForm onSendMessage={handleSendMessage} />
     </div>

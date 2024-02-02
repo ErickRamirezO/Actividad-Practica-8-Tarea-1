@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button ,InputGroup, FormControl,} from 'react-bootstrap';
 
 const MessageForm = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
@@ -22,8 +24,18 @@ const MessageForm = ({ onSendMessage }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={message} onChange={handleChange} />
-      <button type="submit">Enviar</button>
+      <InputGroup className="mb-3">
+
+        <FormControl
+          type="text"
+          value={message}
+          onChange={handleChange}
+          placeholder="Escribe tu mensaje aquí" // Placeholder opcional
+          aria-label="Escribe tu mensaje aquí"
+          aria-describedby="basic-addon2"
+        />
+        <Button variant="primary" type="submit">Enviar</Button> {/* Utilizar variant para dar estilo al botón */}
+      </InputGroup>
     </form>
   );
 };
