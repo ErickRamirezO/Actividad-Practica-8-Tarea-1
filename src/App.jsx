@@ -27,13 +27,11 @@ function App() {
 
   if (!session) {
     return (
-      <Auth 
-        supabaseClient={supabase} 
-        appearance={{ 
-          theme: ThemeSupa, 
-          providers: ['github'] // Limit authentication to GitHub only
-        }} 
-      />
+      <Auth
+    supabaseClient={supabase}
+    appearance={{ theme: ThemeSupa }}
+    providers={['github']}
+  />
     );
   } else {
     return <Chat />;

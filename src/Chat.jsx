@@ -90,8 +90,6 @@ export default function Chat() {
   }
   return (
     <div>
-      
-    
       <h1>Mensajería Segura</h1>
       <Button onClick={signOut}>Logout</Button>
       <MessageList messages={messages} />
